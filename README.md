@@ -4,19 +4,18 @@ Embedded systems, robotics, tactile sensing, and real-time control.
 
 ## Featured project
 
-### OSMO Magnet 3D Force
+### OSMO Glove Toolkit
 
-Magnetometer-based 3D force visualization and reproducible BowieGlove firmware stability work for the OSMO tactile glove.
+Custom firmware variants and Windows host tools for the OSMO/Bowie tactile glove.
 
-- Real-time `Fx`, `Fy`, `Fz`, and `|F|`
-- XY, XZ, and YZ vector projections
-- Hard/soft-iron calibration
-- Repeated-rubbing six-direction calibration
-- BHI360 FIFO/reset recovery and USB stall recovery
-- Byte-for-byte reproducible firmware build
-- Prebuilt HEX/BIN release assets
+- 3D magnetic force firmware and host application
+- Custom 9-DoF attitude / magnetic-yaw firmware and host application
+- Official Bosch NDOF single-magnet yaw variant
+- Full compatible 6-DoF GAMERV build
+- Raw preview, calibration, diagnostics, trace recording, replay, and verification tools
+- Prebuilt HEX/BIN files with SHA256 checksums
 
-[Repository](https://github.com/lina130/osmo-magnet-3d-force) · [v0.1.0 release](https://github.com/lina130/osmo-magnet-3d-force/releases/tag/v0.1.0)
+[Repository](https://github.com/lina130/osmo-glove-toolkit) · [v0.2.0 release](https://github.com/lina130/osmo-glove-toolkit/releases/tag/v0.2.0)
 
 ## Selected projects
 
@@ -30,14 +29,16 @@ Magnetometer-based 3D force visualization and reproducible BowieGlove firmware s
 
 ## Reproducibility
 
-For `osmo-magnet-3d-force`, a fresh clone of the pinned upstream firmware, patch application, clean build, and SHA256 comparison are automated:
+The force firmware build is verified end to end against a pinned upstream commit. The custom attitude source and all release images are included in the toolkit.
 
-```powershell
+~~~powershell
+git clone https://github.com/lina130/osmo-glove-toolkit.git
+cd osmo-glove-toolkit
 .\scripts\reproduce_all.ps1
-```
+~~~
 
 Expected result:
 
-```text
+~~~text
 REPRODUCTION_PASS=True
-```
+~~~
